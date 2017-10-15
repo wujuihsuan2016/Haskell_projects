@@ -6,7 +6,7 @@ import Data.List
 data Expr
 data Operator = Plus | Minus | Times | Div deriving (Show,Eq)
 data Token = TokOp Operator  
-				   | TokIdent String
+           | TokIdent String
            | TokNum Double
            | TokLPar
            | TokRPar
@@ -45,9 +45,3 @@ prefixAlphaNum = span isAlphaNum
 
 prefixNum :: String -> (String, String)
 prefixNum = span isDigit
-
-parse :: [Token] -> Expr
-parse = undefined
-
-evaluate :: Expr -> Double
-evaluate = undefined
