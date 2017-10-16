@@ -1,4 +1,4 @@
-module Lexer (tokenize) where
+module Lexer where
 
 import Data.Char
 import Data.List
@@ -37,7 +37,7 @@ tokenize (c:cs)
     | isSpace c = tokenize cs
     | c == '(' = TokLPar : tokenize cs
     | c == ')' = TokRPar : tokenize cs
-    | c == '=' = TokEq : tokenize cs
+    | c == '=' = TokAssign : tokenize cs
     | otherwise = error $ "Cannot tokenize " ++ [c]
 
 prefixAlphaNum :: String -> (String, String)
