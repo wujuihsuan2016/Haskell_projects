@@ -61,7 +61,7 @@ seq' :: Parser Com
 seq' = (braces . semiSep1) com >>= return . Seq 
 
 cond :: Parser Com 
-cond = reserved "if" >> rexp >>= \e -> reserved "then" >> com >>= \c1 -> reserved "then" >> com >>= \c2 -> return (Cond e c1 c2)
+cond = reserved "if" >> rexp >>= \e -> reserved "then" >> com >>= \c1 -> reserved "else" >> com >>= \c2 -> return (Cond e c1 c2)
 
 while :: Parser Com
 while = reserved "while" >> rexp >>= \e -> reserved "do" >> com >>= \c -> return (While e c)
